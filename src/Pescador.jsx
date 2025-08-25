@@ -2,7 +2,6 @@ import React, {
   useState,
   useEffect,
   useCallback,
-  createRef,
   useRef
 } from "react";
 import gsap, { Power4 } from "gsap";
@@ -33,9 +32,9 @@ export default function Pescador({
   className
 }) {
   const squareRef = useRef();
-  const triangleRefs = useRef([...Array(3)].map(() => createRef()));
-  const polygonRefs = useRef([...Array(3)].map(() => createRef()));
-  const lineRefs = useRef([...Array(3)].map(() => createRef()));
+  const triangleRefs = useRef(Array.from({ length: 3 }, () => React.createRef()));
+  const polygonRefs = useRef(Array.from({ length: 3 }, () => React.createRef()));
+  const lineRefs = useRef(Array.from({ length: 3 }, () => React.createRef()));
 
   const [prevSize, setPrevSize] = useState(size);
   const [prevDelay, setPrevDelay] = useState(0);

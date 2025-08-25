@@ -3,7 +3,6 @@ import React, {
   useRef,
   useCallback,
   useEffect,
-  createRef,
   useMemo
 } from "react";
 import gsap, { Power1, Power4, Expo } from "gsap";
@@ -46,12 +45,9 @@ export default function Siargao({
   onRepeat,
   className
 }) {
-  const linesRefs = useRef([...Array(LINES_LENGTH)].map(() => createRef()));
+  const linesRefs = useRef(Array.from({ length: LINES_LENGTH }, () => React.createRef()));
   const circlesRefs = useRef(
-    [...Array(CIRCLES_LENGTH)].map(() => ({
-      svg: createRef(),
-      shape: createRef()
-    }))
+    Array.from({ length: CIRCLES_LENGTH }, () => ({ svg: React.createRef(), shape: React.createRef() }))
   );
 
   const [prevSize, setPrevSize] = useState(size);

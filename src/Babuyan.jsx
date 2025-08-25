@@ -2,7 +2,6 @@ import React, {
   useState,
   useEffect,
   useCallback,
-  createRef,
   useRef,
   useMemo
 } from "react";
@@ -34,7 +33,7 @@ export default function Babuyan({
   const starRef = useRef();
   const starPolygonRef = useRef();
   const polygonRef = useRef();
-  const linesRefs = useRef([...Array(5)].map(() => createRef()));
+  const linesRefs = useRef(Array.from({ length: 5 }, () => React.createRef()));
 
   const [prevSize, setPrevSize] = useState(size);
   const [prevDelay, setPrevDelay] = useState(0);

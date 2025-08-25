@@ -3,8 +3,7 @@ import React, {
   useEffect,
   useCallback,
   useRef,
-  useMemo,
-  createRef
+  useMemo
 } from "react";
 import gsap, { Power4 } from "gsap";
 import ZigZag from "./Icons/ZigZag";
@@ -30,9 +29,9 @@ export default function Polillo({
   onRepeat,
   className
 }) {
-  const zigzagRefs = useRef([...Array(9)].map(() => createRef()));
-  const crossRefs = useRef([...Array(9)].map(() => createRef()));
-  const circleRefs = useRef([...Array(2)].map(() => createRef()));
+  const zigzagRefs = useRef(Array.from({ length: 9 }, () => React.createRef()));
+  const crossRefs = useRef(Array.from({ length: 9 }, () => React.createRef()));
+  const circleRefs = useRef(Array.from({ length: 2 }, () => React.createRef()));
 
   const [prevSize, setPrevSize] = useState(size);
   const [prevDelay, setPrevDelay] = useState(0);

@@ -3,7 +3,6 @@ import React, {
   useRef,
   useCallback,
   useEffect,
-  createRef,
   useMemo
 } from "react";
 import gsap, { Power4 } from "gsap";
@@ -144,11 +143,11 @@ export default function Ticao({
   onRepeat,
   className
 }) {
-  const linesRefs = useRef([...Array(LINES_LENGTH)].map(() => createRef()));
+  const linesRefs = useRef(Array.from({ length: LINES_LENGTH }, () => React.createRef()));
   const circleLinesRefs = useRef(
-    [...Array(CIRCLE_LINES_LENGTH * 4)].map(() => createRef())
+    Array.from({ length: CIRCLE_LINES_LENGTH * 4 }, () => React.createRef())
   );
-  const circlesRefs = useRef([...Array(CIRCLES_LENGTH)].map(() => createRef()));
+  const circlesRefs = useRef(Array.from({ length: CIRCLES_LENGTH }, () => React.createRef()));
 
   const [prevSize, setPrevSize] = useState(size);
   const [prevDelay, setPrevDelay] = useState(0);

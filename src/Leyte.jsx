@@ -2,7 +2,6 @@ import React, {
   useState,
   useEffect,
   useCallback,
-  createRef,
   useRef,
   useMemo
 } from "react";
@@ -70,9 +69,9 @@ export default function Leyte({
   onRepeat,
   className
 }) {
-  const circleRefs = useRef([...Array(7)].map(() => createRef()));
-  const lineRefs = useRef([...Array(9)].map(() => createRef()));
-  const shapesRefs = useRef([...Array(6)].map(() => createRef()));
+  const circleRefs = useRef(Array.from({ length: 7 }, () => React.createRef()));
+  const lineRefs = useRef(Array.from({ length: 9 }, () => React.createRef()));
+  const shapesRefs = useRef(Array.from({ length: 6 }, () => React.createRef()));
 
   const [prevSize, setPrevSize] = useState(size);
   const [prevDelay, setPrevDelay] = useState(0);

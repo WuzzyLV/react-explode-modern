@@ -1,5 +1,4 @@
 import React, {
-  createRef,
   useState,
   useEffect,
   useCallback,
@@ -29,7 +28,7 @@ export default function Corregidor({
   className
 }) {
   const circleRef = useRef();
-  const linesRefs = useRef([...Array(COUNT)].map(() => createRef()));
+  const linesRefs = useRef(Array.from({ length: COUNT }, () => React.createRef()));
 
   const [prevSize, setPrevSize] = useState(size);
   const [prevDelay, setPrevDelay] = useState(0);

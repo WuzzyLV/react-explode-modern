@@ -3,7 +3,6 @@ import React, {
   useEffect,
   useCallback,
   useRef,
-  createRef,
   useMemo
 } from "react";
 import gsap, { Power4 } from "gsap";
@@ -34,10 +33,10 @@ export default function Luzon({
   onRepeat,
   className
 }) {
-  const circleRefs = useRef([...Array(2)].map(() => createRef()));
-  const waveRefs = useRef([...Array(4)].map(() => createRef()));
-  const zigzagRefs = useRef([...Array(3)].map(() => createRef()));
-  const heartLineRefs = useRef([...Array(4)].map(() => createRef()));
+  const circleRefs = useRef(Array.from({ length: 2 }, () => React.createRef()));
+  const waveRefs = useRef(Array.from({ length: 4 }, () => React.createRef()));
+  const zigzagRefs = useRef(Array.from({ length: 3 }, () => React.createRef()));
+  const heartLineRefs = useRef(Array.from({ length: 4 }, () => React.createRef()));
 
   const [prevSize, setPrevSize] = useState(size);
   const [prevDelay, setPrevDelay] = useState(0);
