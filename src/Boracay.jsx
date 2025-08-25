@@ -2,8 +2,7 @@ import React, {
   useState,
   useEffect,
   useCallback,
-  useRef,
-  createRef
+  useRef
 } from "react";
 import gsap, { Power4 } from "gsap";
 
@@ -26,7 +25,7 @@ export default function Boracay({
   onRepeat,
   className
 }) {
-  const linesRefs = useRef([...Array(COUNT)].map(() => createRef()));
+  const linesRefs = useRef(Array.from({ length: COUNT }, () => React.createRef()));
   const [prevSize, setPrevSize] = useState(size);
   const [prevDelay, setPrevDelay] = useState(0);
   const [prevRepeatDelay, setPrevRepeatDelay] = useState(0);

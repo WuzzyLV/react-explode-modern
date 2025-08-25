@@ -2,7 +2,6 @@ import React, {
   useState,
   useEffect,
   useCallback,
-  createRef,
   useRef,
   useMemo
 } from "react";
@@ -28,8 +27,8 @@ export default function Balabac({
   className
 }) {
   const circleRef = useRef();
-  const circlesRefs = useRef([...Array(4)].map(() => createRef()));
-  const linesRefs = useRef([...Array(4)].map(() => createRef()));
+  const circlesRefs = useRef(Array.from({ length: 4 }, () => React.createRef()));
+  const linesRefs = useRef(Array.from({ length: 4 }, () => React.createRef()));
 
   const [prevSize, setPrevSize] = useState(size);
   const [prevDelay, setPrevDelay] = useState(0);

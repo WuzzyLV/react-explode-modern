@@ -2,7 +2,6 @@ import React, {
   useState,
   useRef,
   useEffect,
-  createRef,
   useCallback,
   useMemo
 } from "react";
@@ -38,10 +37,10 @@ export default function Negros({
   className
 }) {
   const lineRef = useRef();
-  const circlesRefs = useRef([...Array(1)].map(() => createRef()));
-  const sinewavesRefs = useRef([...Array(8)].map(() => createRef()));
+  const circlesRefs = useRef(Array.from({ length: 1 }, () => React.createRef()));
+  const sinewavesRefs = useRef(Array.from({ length: 8 }, () => React.createRef()));
   const sticksRefs = useRef(
-    [...Array(9)].map(() => ({ svg: createRef(), shape: createRef() }))
+    Array.from({ length: 9 }, () => ({ svg: React.createRef(), shape: React.createRef() }))
   );
 
   const [prevSize, setPrevSize] = useState(size);

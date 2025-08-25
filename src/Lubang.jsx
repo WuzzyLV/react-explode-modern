@@ -2,8 +2,7 @@ import React, {
   useState,
   useEffect,
   useCallback,
-  useRef,
-  createRef
+  useRef
 } from "react";
 import gsap, { Power4, Expo } from "gsap";
 import CurveLine from "./Icons/CurveLine";
@@ -33,10 +32,10 @@ export default function Lubang({
   const curveLiveRef = useRef();
   const circleRef = useRef();
   const shapesRefs = useRef(
-    [...Array(4)].map(() => ({ outer: createRef(), inner: createRef() }))
+    Array.from({ length: 4 }, () => ({ outer: React.createRef(), inner: React.createRef() }))
   );
   const squareRefs = useRef(
-    [...Array(3)].map(() => ({ inner: createRef(), outer: createRef() }))
+    Array.from({ length: 3 }, () => ({ inner: React.createRef(), outer: React.createRef() }))
   );
 
   const [prevSize, setPrevSize] = useState(size);

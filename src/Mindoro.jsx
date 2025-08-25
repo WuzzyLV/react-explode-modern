@@ -3,7 +3,6 @@ import React, {
   useRef,
   useEffect,
   useCallback,
-  createRef,
   useMemo
 } from "react";
 import gsap, { Power4, Expo } from "gsap";
@@ -38,10 +37,10 @@ export default function Mindoro({
   className
 }) {
   const hexagonRef = useRef();
-  const seahouseRefs = useRef([...Array(4)].map(() => createRef()));
-  const sinewavesRefs = useRef([...Array(8)].map(() => createRef()));
+  const seahouseRefs = useRef(Array.from({ length: 4 }, () => React.createRef()));
+  const sinewavesRefs = useRef(Array.from({ length: 8 }, () => React.createRef()));
   const triangleRefs = useRef(
-    [...Array(3)].map(() => ({ svg: createRef(), shape: createRef() }))
+    Array.from({ length: 3 }, () => ({ svg: React.createRef(), shape: React.createRef() }))
   );
 
   const [prevSize, setPrevSize] = useState(size);
