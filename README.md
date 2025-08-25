@@ -7,16 +7,17 @@ React Explode is a collection of explosion animations made in SVG and GSAP.
 
 `npm install react-explode` or `yarn add react-explode`
 
+**Requirements:**
+- React 19.x or later
+
 # Usage
 
 ```js
-import React, { Component } from "react";
+import React from "react";
 import Explosion from "react-explode/Explosion1";
 
-class ReactExplode extends Component {
-  render() {
-    return <Explosion size="400" delay={0} repeatDelay={0} repeat={5} />;
-  }
+function ReactExplode() {
+  return <Explosion size="400" delay={0} repeatDelay={0} repeat={5} />;
 }
 ```
 
